@@ -90,6 +90,5 @@ type subscriberAttributes map[string]subscriberAttribute
 
 // SubscriberAttribute represents attributes of subscriber.
 type subscriberAttribute struct {
-	Value     string       `json:"value"`
-	UpdatedAt milliseconds `json:"updated_at_ms"`
+	Value string `json:"value"`
 }
