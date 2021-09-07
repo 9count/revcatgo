@@ -13,6 +13,7 @@ const (
 	EventTypeInitialPurchase     = "INITIAL_PURCHASE"
 	EventTypeNonRenewingPurchase = "NON_RENEWING_PURCHASE"
 	EventTypeRenewal             = "RENEWAL"
+	EventTypeExpiration          = "EXPIRATION"
 	EventTypeProductChange       = "PRODUCT_CHANGE"
 	EventTypeChancellation       = "CANCELLATION"
 	EventTypeUnChancellation     = "UNCANCELLATION"
@@ -26,6 +27,7 @@ var validEventTypeValues = []string{
 	EventTypeInitialPurchase,
 	EventTypeNonRenewingPurchase,
 	EventTypeRenewal,
+	EventTypeExpiration,
 	EventTypeProductChange,
 	EventTypeChancellation,
 	EventTypeUnChancellation,
