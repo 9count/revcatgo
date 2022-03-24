@@ -20,6 +20,7 @@ const (
 	EventTypeBillingIssue        = "BILLING_ISSUE"
 	EventTypeSubscriberAlias     = "SUBSCRIBER_ALIAS"
 	EventTypeSubscriptionPaused  = "SUBSCRIPTION_PAUSED"
+	EventTransfer                = "TRANSFER"
 )
 
 var validEventTypeValues = []string{
@@ -34,6 +35,7 @@ var validEventTypeValues = []string{
 	EventTypeBillingIssue,
 	EventTypeSubscriberAlias,
 	EventTypeSubscriptionPaused,
+	EventTransfer,
 }
 
 type eventType struct {
