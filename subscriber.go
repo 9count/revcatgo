@@ -12,20 +12,20 @@ type SubscriberResponse struct {
 }
 
 type Subscriber struct {
-	Entitlements      map[string]Entitlement     `json:"entitlements"`
-	FirstSeen         time.Time                  `json:"first_seen"`
-	LastSeen          time.Time                  `json:"last_seen"`
-	ManagementURL     null.String                `json:"management_url"`
-	OriginalAppUserID null.String                `json:"original_app_user_id"`
-	Subscriptions     map[string]Subscription    `json:"subscriptions"`
-	NonSubscription   map[string]NonSubscription `json:"non_subscriptions"`
+	Entitlements      map[string]Entitlement       `json:"entitlements"`
+	FirstSeen         time.Time                    `json:"first_seen"`
+	LastSeen          time.Time                    `json:"last_seen"`
+	ManagementURL     null.String                  `json:"management_url"`
+	OriginalAppUserID null.String                  `json:"original_app_user_id"`
+	Subscriptions     map[string]Subscription      `json:"subscriptions"`
+	NonSubscriptions  map[string][]NonSubscription `json:"non_subscriptions"`
 }
 
 type Entitlement struct {
 	ProductIdentifier      string    `json:"product_identifier"`
 	ExpiresDate            time.Time `json:"expires_date"`
 	GracePeriodExpiresDate null.Time `json:"grace_period_expires_date"`
-	PurchaseDate           time.Time `json:"purchase_dat"`
+	PurchaseDate           time.Time `json:"purchase_date"`
 }
 
 type Subscription struct {

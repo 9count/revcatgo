@@ -9,14 +9,14 @@ import (
 )
 
 func TestNewStore(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error
 	}{
 		{"PLAY_STORE", "PLAY_STORE", nil},
 		{"APP_STORE", "APP_STORE", nil},
-		{"INVALID", "", errors.New("store value should be one of the following: PLAY_STORE, APP_STORE, STRIPE, MAC_APP_STORE, PROMOTIONAL")},
+		{"INVALID", "", errors.New("store value should be one of the following: PLAY_STORE, APP_STORE, STRIPE, MAC_APP_STORE, PROMOTIONAL, got INVALID")},
 	}
 
 	for _, c := range cases {
@@ -31,8 +31,7 @@ func TestNewStore(t *testing.T) {
 }
 
 func TestStoreUnMarshal(t *testing.T) {
-
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error

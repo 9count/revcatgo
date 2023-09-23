@@ -9,14 +9,14 @@ import (
 )
 
 func TestNewEventType(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error
 	}{
 		{"INITIAL_PURCHASE", "INITIAL_PURCHASE", nil},
 		{"CANCELLATION", "CANCELLATION", nil},
-		{"INVALID", "", errors.New("eventType value should be one of the following: TEST, INITIAL_PURCHASE, NON_RENEWING_PURCHASE, RENEWAL, PRODUCT_CHANGE, CANCELLATION, UNCANCELLATION, BILLING_ISSUE, SUBSCRIBER_ALIAS, SUBSCRIPTION_PAUSED")},
+		{"INVALID", "", errors.New("eventType value should be one of the following: TEST, INITIAL_PURCHASE, NON_RENEWING_PURCHASE, RENEWAL, PRODUCT_CHANGE, CANCELLATION, UNCANCELLATION, BILLING_ISSUE, SUBSCRIBER_ALIAS, SUBSCRIPTION_PAUSED, TRANSFER, EXPIRATION, got INVALID")},
 	}
 
 	for _, c := range cases {
@@ -31,7 +31,7 @@ func TestNewEventType(t *testing.T) {
 }
 
 func TestEventTypeUnMarshal(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error

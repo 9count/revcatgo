@@ -9,14 +9,14 @@ import (
 )
 
 func TestNewEnvironment(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error
 	}{
 		{"SANDBOX", "SANDBOX", nil},
 		{"PRODUCTION", "PRODUCTION", nil},
-		{"INVALID", "", errors.New("environment value should be one of the following:SANDBOX,PRODUCTION")},
+		{"INVALID", "", errors.New("environment value should be one of the following: SANDBOX,PRODUCTION, got INVALID")},
 	}
 
 	for _, c := range cases {
@@ -31,7 +31,7 @@ func TestNewEnvironment(t *testing.T) {
 }
 
 func TestEnvironmentUnMarshal(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error

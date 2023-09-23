@@ -9,14 +9,14 @@ import (
 )
 
 func TestNewCancelReason(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error
 	}{
 		{"UNSUBSCRIBE", "UNSUBSCRIBE", nil},
 		{"BILLING_ERROR", "BILLING_ERROR", nil},
-		{"INVALID", "", errors.New("cancelReason value should be one of the following:UNSUBSCRIBE,BILLING_ERROR,DEVELOPER_INITIATED,PRICE_INCREASE,CUSTOMER_SUPPORT,UNKNOWN")},
+		{"INVALID", "", errors.New("cancelReason value should be one of the following: UNSUBSCRIBE,BILLING_ERROR,DEVELOPER_INITIATED,PRICE_INCREASE,CUSTOMER_SUPPORT,UNKNOWN, got INVALID")},
 	}
 
 	for _, c := range cases {
@@ -31,7 +31,7 @@ func TestNewCancelReason(t *testing.T) {
 }
 
 func TestCancelReasonUnMarshal(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error

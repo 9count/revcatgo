@@ -32,17 +32,22 @@ type Event struct {
 	Environment              environment          `json:"environment"`
 	IsTrialConversion        null.Bool            `json:"is_trial_conversion"`
 	CancelReason             cancelReason         `json:"cancel_reason"`
+	ExpirationReason         cancelReason         `json:"expiration_reason"`
 	NewProductID             string               `json:"new_product_id"`
 	PresentedOfferingID      string               `json:"presented_offering_id"`
 	Price                    price                `json:"price"`
 	Currency                 null.String          `json:"currency"`
 	PriceInPurchasedCurrency float32              `json:"price_in_purchased_currency"`
 	TakeHomePercentage       float32              `json:"takehome_percentage"`
+	CommissionPercentage     float32              `json:"commission_percentage"`
 	SubscriberAttributes     subscriberAttributes `json:"subscriber_attributes"`
 	TransactionID            string               `json:"transaction_id"`
 	OriginalTransactionID    string               `json:"original_transaction_id"`
+	IsFamilyShare            bool                 `json:"is_family_share"`
 	TransferredFrom          []string             `json:"transferred_from"`
 	TransferredTo            []string             `json:"transferred_to"`
+	CountryCode              string               `json:"country_code"`
+	OfferCode                string               `json:"offer_code"`
 }
 
 // IsExpired checks whether a subscription is expired or not.
@@ -63,7 +68,6 @@ func (e *Event) HasEntitlementID(id string) bool {
 
 // GetAllRelatedUserID returns a unique id list of AppUserID, OriginalAppUserID, and Aliases.
 func (e *Event) GetAllRelatedUserID() []string {
-
 	m := make(map[string]bool)
 	var idList []string
 	if e.AppUserID != "" {
@@ -93,4 +97,5 @@ type subscriberAttributes map[string]subscriberAttribute
 // SubscriberAttribute represents attributes of subscriber.
 type subscriberAttribute struct {
 	Value string `json:"value"`
+	// UpdatedAt milliseconds `json:"updated_at_ms"`
 }
