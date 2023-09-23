@@ -13,14 +13,14 @@ const (
 	EventTypeInitialPurchase     = "INITIAL_PURCHASE"
 	EventTypeNonRenewingPurchase = "NON_RENEWING_PURCHASE"
 	EventTypeRenewal             = "RENEWAL"
-	EventTypeExpiration          = "EXPIRATION"
 	EventTypeProductChange       = "PRODUCT_CHANGE"
-	EventTypeChancellation       = "CANCELLATION"
-	EventTypeUnChancellation     = "UNCANCELLATION"
+	EventTypeCancellation        = "CANCELLATION"
+	EventTypeUnCancellation      = "UNCANCELLATION"
 	EventTypeBillingIssue        = "BILLING_ISSUE"
 	EventTypeSubscriberAlias     = "SUBSCRIBER_ALIAS"
 	EventTypeSubscriptionPaused  = "SUBSCRIPTION_PAUSED"
-	EventTransfer                = "TRANSFER"
+	EventTypeTransfer            = "TRANSFER"
+	EventTypeExpiration          = "EXPIRATION"
 )
 
 var validEventTypeValues = []string{
@@ -28,14 +28,14 @@ var validEventTypeValues = []string{
 	EventTypeInitialPurchase,
 	EventTypeNonRenewingPurchase,
 	EventTypeRenewal,
-	EventTypeExpiration,
 	EventTypeProductChange,
-	EventTypeChancellation,
-	EventTypeUnChancellation,
+	EventTypeCancellation,
+	EventTypeUnCancellation,
 	EventTypeBillingIssue,
 	EventTypeSubscriberAlias,
 	EventTypeSubscriptionPaused,
-	EventTransfer,
+	EventTypeTransfer,
+	EventTypeExpiration,
 }
 
 type eventType struct {
@@ -44,7 +44,7 @@ type eventType struct {
 
 func newEventType(s string) (*eventType, error) {
 	if !contains(validEventTypeValues, s) {
-		return &eventType{}, errors.New("eventType value should be one of the following: " + strings.Join(validEventTypeValues, ", "))
+		return &eventType{}, fmt.Errorf("eventType value should be one of the following: %v, got %v", strings.Join(validEventTypeValues, ", "), s)
 	}
 	return &eventType{value: null.StringFrom(s)}, nil
 }

@@ -18,21 +18,23 @@ const (
 	CancelReasonDeveloperInitiated = "DEVELOPER_INITIATED"
 	CancelReasonPriceIncrease      = "PRICE_INCREASE"
 	CancelReasonCustomerSupport    = "CUSTOMER_SUPPORT"
+	CancelReasonSubscriptionPaused = "SUBSCRIPTION_PAUSED"
 	CancelReasonUnknown            = "UNKNOWN"
 )
 
-var validcancelReasonValues = []string{
+var validCancelReasonValues = []string{
 	CancelReasonUnsubscribe,
 	CancelReasonBillingError,
 	CancelReasonDeveloperInitiated,
 	CancelReasonPriceIncrease,
 	CancelReasonCustomerSupport,
+	CancelReasonSubscriptionPaused,
 	CancelReasonUnknown,
 }
 
 func newCancelReason(v string) (*cancelReason, error) {
-	if !contains(validcancelReasonValues, v) {
-		return &cancelReason{}, errors.New("cancelReason value should be one of the following:" + strings.Join(validcancelReasonValues, ","))
+	if !contains(validCancelReasonValues, v) {
+		return &cancelReason{}, fmt.Errorf("cancelReason value should be one of the following: %v, got %v", strings.Join(validCancelReasonValues, ","), v)
 	}
 	return &cancelReason{value: null.StringFrom(v)}, nil
 }

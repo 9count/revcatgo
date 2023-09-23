@@ -9,14 +9,14 @@ import (
 )
 
 func TestNewPeriodType(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error
 	}{
 		{"TRIAL", "TRIAL", nil},
 		{"NORMAL", "NORMAL", nil},
-		{"INVALID", "", errors.New("periodType value should be one of the following:TRIAL,INTRO,NORMAL,PROMOTIONAL")},
+		{"INVALID", "", errors.New("periodType value should be one of the following: TRIAL,INTRO,NORMAL,PROMOTIONAL, got INVALID")},
 	}
 
 	for _, c := range cases {
@@ -31,7 +31,7 @@ func TestNewPeriodType(t *testing.T) {
 }
 
 func TestPeriodTypeUnMarshal(t *testing.T) {
-	var cases = []struct {
+	cases := []struct {
 		in       string
 		expected string
 		err      error
