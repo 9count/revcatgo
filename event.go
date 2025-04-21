@@ -18,6 +18,7 @@ type Event struct {
 	ID                       string               `json:"id"`
 	Type                     eventType            `json:"type"`
 	EventTimestampAt         milliseconds         `json:"event_timestamp_ms"`
+	AppID                    string               `json:"app_id"`
 	AppUserID                string               `json:"app_user_id"`
 	Aliases                  []string             `json:"aliases"`
 	OriginalAppUserID        string               `json:"original_app_user_id"`
