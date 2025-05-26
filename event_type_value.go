@@ -9,18 +9,19 @@ import (
 )
 
 const (
-	EventTypeTest                = "TEST"
-	EventTypeInitialPurchase     = "INITIAL_PURCHASE"
-	EventTypeNonRenewingPurchase = "NON_RENEWING_PURCHASE"
-	EventTypeRenewal             = "RENEWAL"
-	EventTypeProductChange       = "PRODUCT_CHANGE"
-	EventTypeCancellation        = "CANCELLATION"
-	EventTypeUnCancellation      = "UNCANCELLATION"
-	EventTypeBillingIssue        = "BILLING_ISSUE"
-	EventTypeSubscriberAlias     = "SUBSCRIBER_ALIAS"
-	EventTypeSubscriptionPaused  = "SUBSCRIPTION_PAUSED"
-	EventTypeTransfer            = "TRANSFER"
-	EventTypeExpiration          = "EXPIRATION"
+	EventTypeTest                 = "TEST"
+	EventTypeInitialPurchase      = "INITIAL_PURCHASE"
+	EventTypeNonRenewingPurchase  = "NON_RENEWING_PURCHASE"
+	EventTypeRenewal              = "RENEWAL"
+	EventTypeProductChange        = "PRODUCT_CHANGE"
+	EventTypeCancellation         = "CANCELLATION"
+	EventTypeUnCancellation       = "UNCANCELLATION"
+	EventTypeBillingIssue         = "BILLING_ISSUE"
+	EventTypeSubscriberAlias      = "SUBSCRIBER_ALIAS"
+	EventTypeSubscriptionPaused   = "SUBSCRIPTION_PAUSED"
+	EventTypeTransfer             = "TRANSFER"
+	EventTypeExpiration           = "EXPIRATION"
+	EventTypeSubscriptionExtended = "SUBSCRIPTION_EXTENDED"
 )
 
 var validEventTypeValues = []string{
@@ -36,6 +37,7 @@ var validEventTypeValues = []string{
 	EventTypeSubscriptionPaused,
 	EventTypeTransfer,
 	EventTypeExpiration,
+	EventTypeSubscriptionExtended,
 }
 
 type eventType struct {
